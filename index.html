@@ -2,95 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Wedding RSVP</title>
+  <title>Wedding Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//comment
+
+  <!-- Google Classic Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 20px;
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .container {
+
+    body {
+      font-family: 'Playfair Display', serif;
+      color: #1f3d2b;
+      background-color: #f4f8f6;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      background-image: url("images/BG.jpg"); /* 👈 BACKGROUND IMAGE */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(244, 248, 246, 0.7);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* ANIMATED DIVIDER */
+    .divider {
+      height: 3px;
+      width: 0;
+      background: linear-gradient(to right, #6fa58a, #1f3d2b);
+      margin: 30px auto;
+      animation: expand 1.5s ease forwards;
+    }
+
+    @keyframes expand {
+      to {
+        width: 200px;
+      }
+    }
+
+    /* MESSAGE SECTION */
+    .message {
+      padding: 80px 20px;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .message p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* RSVP SECTION */
+    .rsvp {
+      padding: 80px 20px;
+      background: #e6f0eb;
+    }
+
+    .rsvp-container {
       max-width: 600px;
       margin: auto;
       background: #ffffff;
-      padding: 25px;
+      padding: 40px;
       border-radius: 8px;
     }
-    h1, h2 {
+
+    .rsvp h2 {
       text-align: center;
+      margin-bottom: 30px;
     }
+
     label {
       display: block;
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 600;
     }
-    input, textarea, button {
+
+    input, textarea {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
-      font-size: 16px;
+      font-family: inherit;
+      border: 1px solid #b7cfc2;
+      border-radius: 4px;
     }
+
     button {
-      background-color: #c49b63;
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background: #6fa58a;
       color: white;
       border: none;
-      margin-top: 25px;
+      font-size: 1rem;
       cursor: pointer;
     }
+
     button:hover {
-      background-color: #b08a55;
+      background: #558f73;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>💍 John & Jane</h1>
-    <h2>Wedding RSVP</h2>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Alexander & Olivia</h1>
+      <p>Are Getting Married</p>
+      <div class="divider"></div>
+    </div>
+  </section>
 
-    <p><strong>Date:</strong> June 15, 2026</p>
-    <p><strong>Venue:</strong> Garden Pavilion, City Name</p>
+  <!-- MESSAGE -->
+  <section class="message">
+    <p>
+      With great joy in our hearts, we invite you to celebrate a moment
+      we will cherish forever. Your presence would mean the world to us
+      as we begin this new chapter together.
+    </p>
+  </section>
 
-    <hr>
+  <!-- RSVP -->
+  <section class="rsvp">
+    <div class="rsvp-container">
+      <h2>Kindly Respond</h2>
 
-    <!-- NETLIFY FORM -->
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      action="/thank-you.html"
-    >
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
 
-      <!-- REQUIRED hidden input -->
-      <input type="hidden" name="form-name" value="contact">
+        <label>Full Name</label>
+        <input type="text" name="name" required>
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
+        <label>Address</label>
+        <textarea name="address"></textarea>
 
-      <label for="address">Address</label>
-      <textarea id="address" name="address"></textarea>
+        <label>Age</label>
+        <input type="number" name="age">
 
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age">
+        <label>Will you attend?</label>
+        <input type="text" name="attendance" placeholder="Yes / No" required>
 
-      <label for="attendance">Will you attend?</label>
-      <input
-        type="text"
-        id="attendance"
-        name="attendance"
-        placeholder="Yes or No"
-        required
-      >
-
-      <button type="submit">Submit RSVP</button>
-    </form>
-
-  </div>
+        <button type="submit">Submit RSVP</button>
+      </form>
+    </div>
+  </section>
 
 </body>
 </html>
