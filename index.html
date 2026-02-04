@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Wedding RSVP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #fafafa;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        label {
-            display: block;
-            margin-top: 15px;
-        }
-        input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-        }
-        button {
-            background: #c49b63;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Wedding RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 8px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #c49b63;
+      color: white;
+      border: none;
+      margin-top: 25px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b08a55;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
     <h1>💍 John & Jane</h1>
-    <h2>We're Getting Married!</h2>
+    <h2>Wedding RSVP</h2>
 
     <p><strong>Date:</strong> June 15, 2026</p>
     <p><strong>Venue:</strong> Garden Pavilion, City Name</p>
 
     <hr>
 
-    <h2>RSVP</h2>
+    <!-- NETLIFY FORM -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      action="/thank-you.html"
+    >
 
-    <!-- Netlify Form -->
-    <form name="rsvp" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="rsvp">
+      <!-- REQUIRED hidden input -->
+      <input type="hidden" name="form-name" value="contact">
 
-        <label>Full Name</label>
-        <input type="text" name="name" required>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
 
-        <label>Email</label>
-        <input type="email" name="email" required>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
 
-        <label>Address</label>
-        <textarea name="address"></textarea>
+      <label for="address">Address</label>
+      <textarea id="address" name="address"></textarea>
 
-        <label>Age</label>
-        <input type="number" name="age">
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age">
 
-        <label>Will you attend?</label>
-        <input type="text" name="attendance" placeholder="Yes / No">
+      <label for="attendance">Will you attend?</label>
+      <input
+        type="text"
+        id="attendance"
+        name="attendance"
+        placeholder="Yes or No"
+        required
+      >
 
-        <button type="submit">Submit RSVP</button>
+      <button type="submit">Submit RSVP</button>
     </form>
-</div>
+
+  </div>
 
 </body>
 </html>
