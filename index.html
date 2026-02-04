@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wedding RSVP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        button {
+            background: #c49b63;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>💍 John & Jane</h1>
+    <h2>We're Getting Married!</h2>
+
+    <p><strong>Date:</strong> June 15, 2026</p>
+    <p><strong>Venue:</strong> Garden Pavilion, City Name</p>
+
+    <hr>
+
+    <h2>RSVP</h2>
+
+    <!-- Netlify Form -->
+    <form name="rsvp" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="rsvp">
+
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Address</label>
+        <textarea name="address"></textarea>
+
+        <label>Age</label>
+        <input type="number" name="age">
+
+        <label>Will you attend?</label>
+        <input type="text" name="attendance" placeholder="Yes / No">
+
+        <button type="submit">Submit RSVP</button>
+    </form>
+</div>
+
+</body>
+</html>
